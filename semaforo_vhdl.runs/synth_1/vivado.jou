@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Oct  9 19:31:38 2018
-# Process ID: 1368
+# Start of session at: Tue Oct  9 23:13:20 2018
+# Process ID: 1428
 # Current directory: C:/Users/ALLAN/Documents/semaforo_vhdl/semaforo_vhdl.runs/synth_1
-# Command line: vivado.exe -log traffic_light_controller.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source traffic_light_controller.tcl
-# Log file: C:/Users/ALLAN/Documents/semaforo_vhdl/semaforo_vhdl.runs/synth_1/traffic_light_controller.vds
+# Command line: vivado.exe -log controle_de_semaforo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source controle_de_semaforo.tcl
+# Log file: C:/Users/ALLAN/Documents/semaforo_vhdl/semaforo_vhdl.runs/synth_1/controle_de_semaforo.vds
 # Journal file: C:/Users/ALLAN/Documents/semaforo_vhdl/semaforo_vhdl.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source traffic_light_controller.tcl -notrace
+source controle_de_semaforo.tcl -notrace

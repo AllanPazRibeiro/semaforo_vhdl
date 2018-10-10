@@ -1,76 +1,62 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 09.10.2018 19:19:07
--- Design Name: 
--- Module Name: semaforo_behavioral_test - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
--- Testbench VHDL code for traffic light controller 
-ENTITY tb_traffic_light_controller IS
-END tb_traffic_light_controller;
+ENTITY tb_controle_de_semaforo_tb IS
+END tb_controle_de_semaforo_tb;
 
-ARCHITECTURE behavior OF tb_traffic_light_controller IS 
-    -- Component Declaration for the traffic light controller 
-    COMPONENT traffic_light_controller
-    PORT(
-         sensor : IN  std_logic;
-         clk : IN  std_logic;
-         rst_n : IN  std_logic;
-         light_highway : OUT  std_logic_vector(2 downto 0);
-         light_farm : OUT  std_logic_vector(2 downto 0)
-        );
+ARCHITECTURE behavior OF tb_controle_de_semaforo_tb IS 
+    COMPONENT controle_de_semaforo
+     port ( 
+           clk  : in STD_LOGIC; -- clock 
+           sensor  : in STD_LOGIC; -- Sensor 
+           reset: in STD_LOGIC; -- reset
+           R1,Y1,G1,R2,Y2,G2: OUT STD_LOGIC -- saidas
+         );
     END COMPONENT;
    signal sensor : std_logic := '0';
    signal clk : std_logic := '0';
-   signal rst_n : std_logic := '0';
+   signal reset : std_logic := '0';
   --Outputs
-   signal light_highway : std_logic_vector(2 downto 0);
-   signal light_farm : std_logic_vector(2 downto 0);
-   constant clk_period : time := 10 ns;
+   signal R1,Y1,G1,R2,Y2,G2: std_logic; -- saidas
+   constant clk_period : time := 1 ns;
 BEGIN
- -- Instantiate the traffic light controller 
-   trafficlightcontroller : traffic_light_controller PORT MAP (
+ controledesemaforotb: controle_de_semaforo PORT MAP (
           sensor => sensor,
           clk => clk,
-          rst_n => rst_n,
-          light_highway => light_highway,
-          light_farm => light_farm
+          reset => reset,
+          R1 => R1,
+          Y1 => Y1,
+          G1 => G1,
+          R2 => R2,
+          Y2 => Y2,
+          G2 => G2
         );
    -- Clock process definitions
-   clk_process :process
+  clk_process :process
    begin
-  clk <= '0';
-  wait for clk_period/2;
-  clk <= '1';
-  wait for clk_period/2;
-   end process;
-   stim_proc: process
-   begin    
-  rst_n <= '0';
-  sensor <= '0';
+    clk <= '0';
+    wait for clk_period/2;
+    clk <= '1';
+    wait for clk_period/2;
+  end process;
+  
+  stimulation_proc: process
+     begin    
+      reset <= '0';
+      sensor <= '0';
       wait for clk_period*10;
-  rst_n <= '1';
-  wait for clk_period*20;
-  sensor <= '1';
-  wait for clk_period*100;
-  sensor <= '0';
-      wait;
+      reset <= '1';
+      wait for clk_period*2;
+      sensor <= '1';
+      wait for clk_period*10;
+      sensor <= '0';
+      wait for clk_period*2;
+      sensor <= '1';
+      wait for clk_period*120;
+      sensor <= '0';
+      wait for clk_period*2;
+      sensor <= '1';
+      
    end process;
 
 END;

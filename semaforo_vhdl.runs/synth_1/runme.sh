@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log traffic_light_controller.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source traffic_light_controller.tcl
+EAStep vivado -log controle_de_semaforo.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source controle_de_semaforo.tcl
