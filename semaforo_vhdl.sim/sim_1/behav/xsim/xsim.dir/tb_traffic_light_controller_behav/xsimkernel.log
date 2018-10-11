@@ -2,3 +2,6 @@ Running: xsim.dir/tb_traffic_light_controller_behav/xsimk.exe -simmode gui -wdb 
 Design successfully loaded
 Design Loading Memory Usage: 4828 KB (Peak: 4828 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 5344 KB (Peak: 5344 KB)
+Simulation CPU Usage: 264 ms

@@ -1,0 +1,4 @@
+Running: xsim.dir/tb_controle_de_semaforo_tb_behav/xsimk.exe -simmode gui -wdb tb_controle_de_semaforo_tb_behav.wdb -simrunnum 0 -socket 50985
+Design successfully loaded
+Design Loading Memory Usage: 4840 KB (Peak: 4840 KB)
+Design Loading CPU Usage: 15 ms
